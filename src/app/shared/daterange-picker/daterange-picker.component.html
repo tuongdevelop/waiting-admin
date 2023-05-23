@@ -1,0 +1,12 @@
+<div class="daterange-picker-group" ngbDropdown>
+    <input value="{{fromDate ? ''+fromDate.year +'-'+ fromDate.month +'-'+ fromDate.day: ''}}{{toDate ? ' to '+toDate.year +'-'+ toDate.month +'-'+ toDate.day: ''}}" type="text" class="form-control input-date-picker" placeholder="DD-MM-YYYY (Multiple day supported)" ngbDropdownToggle />
+    <div class="daterange-picker-dropdown" ngbDropdownMenu aria-labelledby="dropdownConfig">
+        <ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t">
+        </ngb-datepicker>
+        <ng-template #t let-date="date" let-focused="focused" >
+            <span  class="custom-day" [class.focused]="focused" [class.range]="isRange(date)" [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date" (mouseleave)="hoveredDate = null">
+                {{ date.day }}
+            </span>
+        </ng-template>
+    </div>
+</div>

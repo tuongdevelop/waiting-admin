@@ -1,0 +1,156 @@
+<div [formGroup] ="parentForm">
+    <div class="form-group">
+        <div class="col-12 col-md-2">
+            <label class="form-title">Question Pic :</label>
+        </div>
+        <!-- <div class="col-12 col-md-5">
+            <input [formControlName]="'questionEng2'" name="questionEng2" type="text" class="form-control" placeholder="(Optional)" />
+        </div> -->
+        <div class="col-12 col-md-6 question-pic-group">
+            <div class="drap-drop-photo border rounded p-1" ngfDrop selectable="1" [(file)]="questionPic" [(lastBaseUrl)]="questionBase64" [accept]="accept" (filesChange) = "fileChange($event, 0)">
+                <div class="p-0 preview-question-image" *ngIf="questionPic" [ngfBackground]="questionPic">
+                </div>                
+                <!-- <input [formControlName]="'questionPicFile'" name="questionPicFile" value="questionPic" type="file"/> -->
+                <div class="p-3" *ngIf="!questionPic">
+                    <div *ngIf="!editQuestionPicture?.questionPic">
+                        <div class="icon-cloud text-center"><img src="assets/images/icon-cloud.png" /></div>
+                        <div class="note-upload text-center mt-3">
+                            <p>Drag and drop a photo<br/>here or click or select<br/>one Icon at the right:<p>
+                        </div>
+                    </div>
+                    <div *ngIf="editQuestionPicture?.questionPic">
+                        <div class="icon-cloud text-center"><img [src]="editQuestionPicture?.questionPic" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-12 col-md-2">
+            <label class="form-title">Correct Answer :</label>
+        </div>
+        <div class="col-12 col-md-9">
+            <div class="input-group correct-answer-group">
+                <div class="correct-item col d-flex justify-content-center border p-1">
+                    <div class="checkbox-group">
+                        <input [formControlName]="'firstAnswer'" name="firstAnswer" value="first" type="checkbox" />
+                        <label class="cbutton"><i class="fa fa-check" aria-hidden="true"></i></label>
+                    </div>
+                </div>
+                <div class="correct-item col d-flex justify-content-center border p-1 border-left-0">
+                    <div class="checkbox-group">
+                        <input [formControlName]="'secondAnswer'" name="secondAnswer" value="second" type="checkbox" />
+                        <label class="cbutton"><i class="fa fa-check" aria-hidden="true"></i></label>
+                    </div>
+                </div>
+                <div class="correct-item col d-flex justify-content-center border p-1 border-left-0">
+                    <div class="checkbox-group">
+                        <input [formControlName]="'thirdAnswer'" name="thirdAnswer" value="third" type="checkbox" />
+                        <label class="cbutton"><i class="fa fa-check" aria-hidden="true"></i></label>
+                    </div>
+                </div>
+                <div class="correct-item col d-flex justify-content-center border p-1 border-left-0">
+                    <div class="checkbox-group">
+                        <input [formControlName]="'fourthAnswer'" name="fourthAnswer" value="fourth" type="checkbox" />
+                        <label class="cbutton"><i class="fa fa-check" aria-hidden="true"></i></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-12 col-md-2">
+            <label class="form-title">Answer Graphic :</label>
+        </div>
+        <div class="col-12 col-md-9 d-flex answer-graphic-group">
+            <div class="col">
+                <div class="drap-drop-photo border rounded p-2" ngfDrop selectable="1" [(file)]="answerPicFirst" [(lastBaseUrl)]="answerFirstBase64" (filesChange) = "fileChange($event, 1)" [accept]="accept">
+                    <div class="p-0 preview-answer-image" *ngIf="answerPicFirst" [ngfBackground]="answerPicFirst">
+                    </div>
+                    <div class="p-0" *ngIf="!answerPicFirst">
+                        <div *ngIf="!editQuestionPicture?.answerPicFirst">
+                            <div class="icon-cloud text-center p-2"><img src="assets/images/icon-cloud.png" /></div>
+                            <div class="note-upload text-center">
+                                <p>Drag and drop a photo<br/>here or click or select<br/>one Icon at the right:
+                                    <p>
+                            </div>
+                        </div>
+                        <div *ngIf="editQuestionPicture?.answerPicFirst">
+                            <div class="icon-cloud text-center p-2"><img [src]="editQuestionPicture?.answerPicFirst" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="drap-drop-photo border rounded p-2" ngfDrop selectable="1" [(file)]="answerPicSencond" [(lastBaseUrl)]="answerSecondBase64" (filesChange) = "fileChange($event, 2)" [accept]="accept">
+                    <div class="p-0 preview-answer-image" *ngIf="answerPicSencond" [ngfBackground]="answerPicSencond">
+                    </div>
+                    <div class="p-0" *ngIf="!answerPicSencond">
+                        <div *ngIf="!editQuestionPicture?.answerPicSecond">
+                            <div class="icon-cloud text-center p-2"><img src="assets/images/icon-cloud.png" /></div>
+                            <div class="note-upload text-center">
+                                <p>Drag and drop a photo<br/>here or click or select<br/>one Icon at the right:
+                                    <p>
+                            </div>
+                        </div>
+                        <div *ngIf="editQuestionPicture?.answerPicSecond">
+                            <div class="icon-cloud text-center p-2"><img [src]="editQuestionPicture?.answerPicSecond" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="drap-drop-photo border rounded p-2" ngfDrop selectable="1" [(file)]="answerPicThird" [(lastBaseUrl)]="answerThirdBase64" (filesChange) = "fileChange($event, 3)" [accept]="accept">
+                    <div class="p-0 preview-answer-image" *ngIf="answerPicThird" [ngfBackground]="answerPicThird">
+                    </div>
+                    <div class="p-0" *ngIf="!answerPicThird">
+                        <div *ngIf="!editQuestionPicture?.answerPicThird">
+                            <div class="icon-cloud text-center p-2"><img src="assets/images/icon-cloud.png" /></div>
+                            <div class="note-upload text-center">
+                                <p>Drag and drop a photo<br/>here or click or select<br/>one Icon at the right:
+                                    <p>
+                            </div>
+                        </div>
+                        <div *ngIf="editQuestionPicture?.answerPicThird">
+                            <div class="icon-cloud text-center p-2"><img [src]="editQuestionPicture?.answerPicThird" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="drap-drop-photo border rounded p-2" ngfDrop selectable="1" [(file)]="answerPicFourth" [(lastBaseUrl)]="answerFourthBase64" (filesChange) = "fileChange($event, 4)" [accept]="accept">
+                    <div class="p-0 preview-answer-image" *ngIf="answerPicFourth" [ngfBackground]="answerPicFourth">
+                    </div>
+                    <div class="p-0" *ngIf="!answerPicFourth">
+                        <div *ngIf="!editQuestionPicture?.answerPicFourth">
+                            <div class="icon-cloud text-center p-2"><img src="assets/images/icon-cloud.png" /></div>
+                            <div class="note-upload text-center">
+                                <p>Drag and drop a photo<br/>here or click or select<br/>one Icon at the right:
+                                    <p>
+                            </div>
+                        </div>
+                        <div *ngIf="editQuestionPicture?.answerPicFourth">
+                            <div class="icon-cloud text-center p-2"><img [src]="editQuestionPicture?.answerPicFourth" /></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="col-12 col-md-2"><label class="form-title">Answer Text Align :</label></div>
+        <div class="col-12 col-md-6">
+            <div class="witch-btn d-flex">
+                <div class="no">
+                    <input [formControlName]="'answerTextAlign'" name="answerTextAlign" value="left" type="radio" checked />
+                    <label>Left</label>
+                </div>
+                <div class="yes">
+                    <input [formControlName]="'answerTextAlign'" name="answerTextAlign" value="center" type="radio" />
+                    <label>Center</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

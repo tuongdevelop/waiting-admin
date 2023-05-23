@@ -1,0 +1,92 @@
+<div [formGroup] ="parentForm">
+  <div class="form-group">
+      <div class="col-12 col-md-2">
+          <label class="form-title">Question Pic :</label>
+      </div>
+      <!-- <div class="col-12 col-md-5">
+          <input [formControlName]="'questionEng2'" name="questionEng2" type="text" class="form-control" placeholder="(Optional)" />
+      </div> -->
+      <div class="col-12 col-md-6 question-pic-group">
+          <div class="drap-drop-photo border rounded p-1" ngfDrop selectable="1" [(file)]="questionPic" [(lastBaseUrl)]="questionBase64" [accept]="accept" (filesChange) = "fileChange($event, 0)">
+              <div class="p-0 preview-question-image" *ngIf="questionPic" [ngfBackground]="questionPic">
+              </div>                
+              <!-- <input [formControlName]="'questionPicFile'" name="questionPicFile" value="questionPic" type="file"/> -->
+              <div class="p-3" *ngIf="!questionPic">
+                  <div *ngIf="!editQuestionPicture?.questionPic">
+                    <div class="icon-cloud text-center">
+                        <img src="assets/images/icon-cloud.png" />
+                    </div>
+                    <div class="note-upload text-center mt-3">
+                        <p>Drag and drop a photo<br/>here or click or select<br/>one Icon at the right:<p>
+                    </div>
+                    </div>
+                  <div *ngIf="editQuestionPicture?.questionPic" class="icon-cloud text-center">
+                        <img [src]="editQuestionPicture?.questionPic" />
+                    </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="form-group">
+      <div class="col-12 col-md-2">
+          <label class="form-title">Correct Answer :</label>
+      </div>
+      <div class="col-12 col-md-9">
+          <div class="input-group correct-answer-group">
+              <div class="correct-item col d-flex justify-content-center border p-1">
+                  <div class="checkbox-group js_first_answer">
+                      <input [formControlName]="'firstAnswer'" name="firstAnswer" value="first" type="checkbox" />
+                      <label class="cbutton"><i class="fa fa-check" aria-hidden="true"></i></label>
+                  </div>
+              </div>
+              <div class="correct-item col d-flex justify-content-center border p-1 border-left-0">
+                  <div class="checkbox-group js_second_answer">
+                      <input [formControlName]="'secondAnswer'" name="secondAnswer" value="second" type="checkbox" />
+                      <label class="cbutton"><i class="fa fa-check" aria-hidden="true"></i></label>
+                  </div>
+              </div>
+              <div class="correct-item col d-flex justify-content-center border p-1 border-left-0">
+                  <div class="checkbox-group js_third_answer">
+                      <input [formControlName]="'thirdAnswer'" name="thirdAnswer" value="third" type="checkbox" />
+                      <label class="cbutton"><i class="fa fa-check" aria-hidden="true"></i></label>
+                  </div>
+              </div>
+              <div class="correct-item col d-flex justify-content-center border p-1 border-left-0">
+                  <div class="checkbox-group js_fourth_answer">
+                      <input [formControlName]="'fourthAnswer'" name="fourthAnswer" value="fourth" type="checkbox" />
+                      <label class="cbutton"><i class="fa fa-check" aria-hidden="true"></i></label>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="form-group">
+      <div class="col-12 col-md-2">
+          <label class="form-title">Answer Text :</label>
+      </div>
+      <div class="col-12 col-md-9">
+          <div class="input-group">
+              <input [formControlName]="'answerTextFirst'" name="answerTextFirst" type="text" class="form-control hdform-control" placeholder="(Optional)" />
+              <input  [formControlName]="'answerTextSecond'" name="answerTextSecond" type="text" class="form-control hdform-control" placeholder="(Optional)" />
+              <input [formControlName]="'answerTextThird'" name="answerTextThird" type="text" class="form-control hdform-control" placeholder="(Optional)" />
+              <input [formControlName]="'answerTextFourth'" name="answerTextFourth" type="text" class="form-control hdform-control" placeholder="(Optional)" />
+          </div>
+      </div>
+  </div>
+  <div class="form-group">
+      <div class="col-12 col-md-2"><label class="form-title">Answer Text Align :</label></div>
+      <div class="col-12 col-md-6">
+          <div class="witch-btn d-flex">
+              <div class="no">
+                  <input [formControlName]="'answerTextAlign'" name="answerTextAlign" value="left" type="radio" checked />
+                  <label>Left</label>
+              </div>
+              <div class="yes">
+                  <input [formControlName]="'answerTextAlign'" name="answerTextAlign" value="center" type="radio" />
+                  <label>Center</label>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

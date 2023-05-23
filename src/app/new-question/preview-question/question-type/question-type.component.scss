@@ -1,0 +1,107 @@
+.question-type {
+    padding-top: 25px;
+    font-family: 'NotoSansDemiLight', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    color: #333333;
+    h3 {
+        font-size: 16px;
+        font-weight: normal;
+    }
+    .question-img {
+        text-align: center;
+        img {
+            max-width: 100%;
+            width: 300px;
+            height: auto;
+        }
+    }
+    .ans {
+        .img-thumbnail {
+            position: relative;
+            padding: 10px;
+            span {
+                font-size: 16px;
+                font-weight: normal;
+                color: #333333;
+                display: block;
+                width: 100%;
+            }
+            input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                cursor: pointer;
+                &:checked~.active {
+                    width: 100%;
+                    height: 100%;
+                    border: 2px solid #4a90e2;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    border-radius: 3px;
+                    box-shadow: 3px 3px 3px #d8d8d8;
+                }
+            }
+            img {
+                position: relative;
+                z-index: 0;
+                max-width: 100%;
+            }
+        }
+    }
+    .btn-submit {
+        height: 53px;
+        font-size: 24px;
+        font-family: 'NotoSansRegular', Helvetica, Arial, Verdana, Tahoma, sans-serif;
+        width: 380px;
+        margin-top: 70px;
+    }
+}
+
+@media(max-width: 767px) {
+    .question-type {
+        padding-top: 0px;
+        h3 {
+            font-size: 16px;
+            font-weight: normal;
+        }
+        .question-img {
+            img {
+                max-width: 100%;
+            }
+        }
+        .ans {
+            margin-top: 20px;
+            .img-thumbnail {
+                &:first-child {
+                    margin-left: 0px !important;
+                }
+                &:last-child {
+                    margin-right: 0px !important;
+                }
+            }
+        }
+        .btn-submit {
+            height: 45px;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 35px;
+        }
+        .px-30 {
+            padding: 0px 30px;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px){
+    .question-type {
+        .btn-submit{
+            width: auto;
+        }
+    }
+}

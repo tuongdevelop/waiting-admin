@@ -1,0 +1,90 @@
+.question-set-setup {
+    .top-section{
+        padding: 10px 34px;
+        .left-part{
+            display: inline-block;
+            width: 50%;
+            .btn {
+                font-size: 14px;
+                color: #4a4a4a;
+                border-radius: 3px;
+                background-color: #dfdfdf;
+            }
+            .add-new {
+                background-color: #6198d8;
+                color: #fff;
+            }
+        }
+        .right-part{
+            display: inline-block;
+            width: 50%;
+            .search{
+                position: relative;
+                width: fit-content;
+                margin-left: auto;
+                img{
+                    position: absolute;
+                    top: 6px;
+                    left: 5px;
+                }
+                input{
+                    border: 1px solid #ddd;
+                    border-radius: 3px;
+                    height: 38px;
+                    padding: 0px 5px 4px 35px;
+                }
+            }
+        }
+    }
+
+    .question-set-setup-content {
+        padding: 20px 34px;
+        .table-responsive{
+            overflow: unset;
+        }
+        table {
+            tr {
+                th,
+                td {
+                    vertical-align: middle;
+                    font-size: 13px;
+                    color: #555555;
+                    button {
+                        font-size: 13px;
+                        color: #555555;
+                    }
+                }
+                th {
+                    border: 0;
+                    min-width: 75px;
+                    color: #4d4d4d;
+                    font-weight: normal;
+                    strong {
+                        font-size: 16px;
+                    }
+                }
+
+                .w-2{
+                    width: 2%;
+                }
+            }
+            &.table-bordered {
+                .border-head,
+                th,
+                td {
+                    border: 1px solid #e5e6e7;
+                }
+            }
+            &.table {
+                th,
+                td {
+                    padding: 5px 10px;
+                }
+            }
+        }
+
+        .mark-red-empty-list{
+            color: red;
+        }
+    }
+}

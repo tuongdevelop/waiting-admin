@@ -1,0 +1,401 @@
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+    
+    body {
+        font-family: 'AvenirNext';
+        font-size: 14px;
+    }
+    
+    p {
+        margin: 0px;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    .no-wrap {
+        white-space: nowrap;
+    }
+    
+    .btn-save {
+        color: #fff;
+        background: #6198d8;
+    }
+    
+    .btn-custom {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    
+    .btn-cancel {
+        color: #fff;
+        background: #8e8e8e;
+    }
+    
+    .btn-edit {
+        font-size: 13px;
+        color: #4a4a4a;
+        background: #dfdfdf;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    
+    .btn-inform {
+        color: #4a4a4a;
+        height: 38px;
+    }
+    
+    .border {
+        border-color: #e5e6e7!important;
+    }
+    
+    .green-text {
+        color: #417505!important;
+    }
+    
+    .witch-btn {
+        .no,
+        .yes {
+            width: 90px;
+            height: 32px;
+            border-radius: 2px;
+            border: 1px solid #e5e6e7;
+            position: relative;
+            label {
+                width: 100%;
+                height: 100%;
+                color: #555555;
+                font-size: 12px;
+                text-align: center;
+                padding: 5px 0px;
+                margin: 0;
+            }
+            input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                cursor: pointer;
+                &:checked {
+                    &~label {
+                        background: #a5cf9c;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        .yes {
+            border-left: 0px;
+        }
+    }
+    
+    .inline-input {
+        .no,
+        .yes {
+            height: 39px;
+            label {
+                display: block;
+                font-size: 14px;
+                line-height: 26px;
+            }
+        }
+    }
+    
+    .multiselect-dropdown {
+        .dropdown-btn {
+            border: 1px solid #ddd !important;
+            border-radius: 0px !important;
+            .selected-item {
+                border: 1px solid #dfdfdf!important;
+                background: #dfdfdf!important;
+                padding: 2px 10px!important;
+                border-radius: 13px!important;
+                color: #4a4a4a!important;
+                font-size: 12px!important;
+                a {
+                    color: #4a4a4a!important;
+                }
+            }
+        }
+    }
+    
+    .multiselect-dropdown {
+        .dropdown-btn {
+            .dropdown-down {
+                border-top: 8px solid #adadad !important;
+                border-left: 5px solid transparent !important;
+                border-right: 5px solid transparent !important;
+            }
+        }
+    }
+    
+    .multiselect-dropdown {
+        .dropdown-btn {
+            .dropdown-up {
+                border-bottom: 8px solid #adadad !important;
+                border-left: 5px solid transparent !important;
+                border-right: 5px solid transparent !important;
+            }
+        }
+    }
+    
+    .dropdown-list {
+        border-radius: 2px!important;
+        box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.17)!important;
+        background-color: #ffffff!important;
+        border: solid 1px #e5e6e7!important;
+        margin-top: 5px!important;
+        .item1 {
+            li {
+                border-bottom: 1px solid #e5e6e7!important;
+            }
+        }
+    }
+    
+    ng-scrollbar {
+        .ng-scrollbar {
+            .ng-scrollbar-thumb {
+                background-color: #e5e6e7;
+            }
+        }
+    }
+    
+    table {
+        th {
+            font-size: 12px;
+            color: #4d4d4d;
+            font-family: 'AvenirNext';
+        }
+        td {
+            font-size: 13px;
+            color: #555555;
+            font-family: 'AvenirNext';
+        }
+    }
+    
+    .table-bordered {
+        td,
+        th {
+            border-bottom-width: 1px;
+            border: 1px solid #e5e6e7;
+            vertical-align: middle;
+        }
+    }
+    
+    .pagination {
+        .page-item {
+            a[aria-label=First] {
+                span {
+                    display: none;
+                }
+                &::before {
+                    content: " ";
+                    background: url(/assets/images/step-backward.png) no-repeat;
+                    background-size: cover;
+                    width: 14px;
+                    height: 14px;
+                    position: absolute;
+                    left: 50%;
+                    margin-left: -7px;
+                    top: 50%;
+                    margin-top: -7px;
+                }
+            }
+            a[aria-label=Previous] {
+                span {
+                    display: none;
+                }
+                &::before {
+                    content: " ";
+                    background: url(/assets/images/caret-left.png) no-repeat;
+                    background-size: cover;
+                    width: 14px;
+                    height: 14px;
+                    position: absolute;
+                    left: 50%;
+                    margin-left: -7px;
+                    top: 50%;
+                    margin-top: -7px;
+                }
+            }
+            a[aria-label=Next] {
+                span {
+                    display: none;
+                }
+                &::before {
+                    content: " ";
+                    background: url(/assets/images/caret-right.png) no-repeat;
+                    background-size: cover;
+                    width: 14px;
+                    height: 14px;
+                    position: absolute;
+                    left: 50%;
+                    margin-left: -7px;
+                    top: 50%;
+                    margin-top: -7px;
+                }
+            }
+            a[aria-label=Last] {
+                span {
+                    display: none;
+                }
+                &::before {
+                    content: " ";
+                    background: url(/assets/images/step-forward.png) no-repeat;
+                    background-size: cover;
+                    width: 14px;
+                    height: 14px;
+                    position: absolute;
+                    left: 50%;
+                    margin-left: -7px;
+                    top: 50%;
+                    margin-top: -7px;
+                }
+            }
+            .page-link {
+                font-size: 14px;
+                color: #000000;
+                width: 36px;
+                height: 36px;
+                text-align: center;
+                background-color: #f9f9f9;
+                border: solid 0.5px #bbbbbb;
+            }
+            &.active {
+                .page-link {
+                    width: 56px;
+                    height: 36px;
+                    box-shadow: 0 1px 1px 0 rgba(221, 221, 221, 0.5), inset 0 1px 3px 0 rgba(153, 153, 153, 0.5);
+                    background-color: #ffffff;
+                    border: solid 1px #bbbbbb;
+                }
+            }
+        }
+    }
+    
+    ngb-timepicker {
+        .ngb-tp {
+            padding: 0 10px;
+            .btn-link {
+                color: #e5e6e7;
+                &:hover {
+                    color: #4a4a4a;
+                }
+            }
+        }
+    }
+    
+    app-daterange-picker {
+        .custom-day {
+            text-align: center;
+            padding: 0.185rem 0.25rem;
+            display: inline-block;
+            height: 2rem;
+            width: 2rem;
+        }
+        .custom-day.focused {
+            background-color: #e6e6e6;
+        }
+        .custom-day.range,
+        .custom-day:hover {
+            background-color: rgb(2, 117, 216);
+            color: white;
+        }
+        .custom-day.faded {
+            background-color: rgba(2, 117, 216, 0.5);
+        }
+    }
+    
+    .question-type-group {
+        .dropdown {
+            .dropdown-content {
+                height: auto!important;
+                ng-scrollbar {
+                    .-vertical {
+                        display: none;
+                    }
+                    .ng-scrollbar-view {
+                        overflow: hidden;
+                    }
+                }
+                ul {
+                    margin-bottom: 1px;
+                }
+            }
+        }
+    }
+    
+    .tailor-question-group {
+        .dropdown {
+            .dropdown-content {
+                height: auto!important;
+                ng-scrollbar {
+                    .-vertical {
+                        display: none;
+                    }
+                    .ng-scrollbar-view {
+                        overflow: hidden;
+                    }
+                }
+                ul {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    
+    .form-control {
+        font-size: 14px;
+        font-family: 'AvenirNext';
+        &::placeholder {
+            color: #999999;
+        }
+    }
+    
+    .form-label {
+        font-family: 'AvenirNext';
+    }
+    
+    .place-holder {
+        color: #999999;
+    }
+    
+    app-daterange-picker {
+        .custom-day {
+            &:hover,
+            &.range {
+                color: #4d4d4d;
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+            &.faded {
+                color: #4d4d4d;
+                background-color: #f0f1f2;
+            }
+        }
+        ngb-datepicker {
+            .ngb-dp-weekday {
+                color: #4d4d4d!important;
+            }
+            .btn-link {
+                color: #4d4d4d;
+                &:hover {
+                    color: #4a4a4a;
+                }
+            }
+        }
+    }
+
+.modal-body{
+    overflow: auto;
+}
+.modal-header{
+    button:focus{
+        outline: 0;
+    }
+}

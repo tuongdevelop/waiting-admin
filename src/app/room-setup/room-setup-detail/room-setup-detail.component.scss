@@ -1,0 +1,72 @@
+.room-setup-detail {
+    .content-detail {
+        padding: 20px 34px;
+        table {
+            td {
+                font-size: 14px;
+                color: #4d4d4d;
+                border: 1px solid #fff;
+            }
+        }
+        .announce-btn {
+            font-size: 12px;
+            color: #555555;
+            padding: 9px 30px;
+        }
+        .event-poster-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #4d4d4d;
+        }
+        .preview-image {
+            width: 210px;
+            height: 296px;
+            background-repeat: no-repeat;
+            opacity: 0.17;
+            background-position: center;
+            background-size: contain;
+        }
+        .multiselect-dropdown-group {
+            .icon-search {
+                position: absolute;
+                right: 45px;
+                top: 5px;
+                z-index: -1;
+            }
+        }
+        .message-announce-group {
+            background: url("/assets/images/icon-audio.png") no-repeat scroll 10px 9px;
+            padding-left: 40px;
+            background-size: 20px;
+        }
+        .drap-drop-photo {
+            width: 210px;
+            height: 296px;
+            .drap-drop-icon {
+                cursor: pointer;
+                position: relative;
+                .icon-group {
+                    position: absolute;
+                    top: 50%;
+                    width: 100%;
+                    transform: translateY(-50%);
+                }
+                p {
+                    font-size: 12px;
+                    font-weight: 700;
+                    text-align: center;
+                    color: #0f0f0f;
+                    text-shadow: 1px 1px 0 #ffffff, 0 2px 4px rgba(0, 0, 0, 0.5);
+                }
+                .current-event-picture {
+                    width: 100%;
+                    z-index: -1;
+                    opacity: 0.17;
+                    object-fit: contain;
+                    width: 210px;
+                    height: 296px;
+                }
+            }
+        }
+    }
+}

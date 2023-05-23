@@ -1,0 +1,64 @@
+.room-setup {
+    .room-setup-content {
+        padding: 20px 34px;
+        table {
+            tr {
+                th,
+                td {
+                    vertical-align: middle;
+                    font-size: 13px;
+                    color: #555555;
+                    button {
+                        font-size: 13px;
+                        color: #555555;
+                    }
+                }
+                th {
+                    border: 0;
+                    min-width: 75px;
+                    color: #4d4d4d;
+                    font-weight: normal;
+                    strong {
+                        font-size: 16px;
+                    }
+                }
+                .br-0 {
+                    border-right: 1px solid #fff;
+                }
+                .bt-0 {
+                    border-top: 1px solid #fff;
+                }
+                .bl-0 {
+                    border-left: 1px solid #fff;
+                }
+                .bb-0 {
+                    border-bottom: 1px solid #fff;
+                }
+                .note {
+                    font-size: 12px;
+                    color: #b3b3b3;
+                    padding: 5px;
+                }
+                .w-136 {
+                    width: 136px;
+                }
+                .w-85 {
+                    width: 85px;
+                }
+            }
+            &.table-bordered {
+                .border-head,
+                th,
+                td {
+                    border: 1px solid #e5e6e7;
+                }
+            }
+            &.table {
+                th,
+                td {
+                    padding: 5px 10px;
+                }
+            }
+        }
+    }
+}

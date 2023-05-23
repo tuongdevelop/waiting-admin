@@ -1,0 +1,39 @@
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <tr>
+            <th width="85px">Event ID</th>
+            <th>Name (Eng)</th>
+            <th>Total Ticket</th>
+            <th>Sold</th>
+            <th>Queue System</th>
+            <th>Tailor set Question</th>
+            <th>Priority Booking</th>
+            <th width="100px">Status</th>
+            <th>Action</th>
+        </tr>
+
+        <tr *ngFor="let event of eventList, index as i">
+            <td>{{event.id}}</td>
+            <td>{{event.nameEn}}</td>
+            <td>{{event.totalQuantity}}</td>
+            <td>{{event.totalSold}}</td>
+            <td>
+                <span class="green-text">{{event.questionUserQueue}}</span>
+                <!-- <span *ngIf="!event.onSale.user_queue">No</span> -->
+            </td>
+            <td>
+                <!-- <span *ngIf="event.onSale.tailor_question != ''" [ngClass]="{'green-text': event.on_sale.tailor_question.toLowerCase() != 'no'}">{{event.on_sale.tailor_question}}</span>-->
+                <span>-</span>
+            </td>
+            <td>
+                <span class="green-text">{{event.priorityBooking.userQueue}}</span>
+                <!-- <span *ngIf="!event.priorityBooking.userQueue">No</span> -->
+            </td>
+            <td>{{standardSaleType(event.onSale.onSaleStatus) }}</td>
+            <td>
+                <!-- <a class="btn btn-edit" [routerLink]="['/event', event.event_id ]">Edit</a> -->
+                <a disabled="true" class="btn btn-edit">Edit</a>
+            </td>
+        </tr>
+    </table>
+</div>

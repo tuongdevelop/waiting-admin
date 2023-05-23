@@ -1,0 +1,23 @@
+<section class="events">
+    <app-page-title [title]="pageTitle" [breadcrumb]="breadcrumb"></app-page-title>
+
+    <div class="event-content">
+        <div class="select-section row">
+
+            <div class="col-auto btn-action">
+                <button class="btn add-new" routerLink="/new-event">+ Add New Event</button>
+            </div>
+        </div>
+
+        <div class="event-list">
+            <app-event-list [eventList]="eventList"></app-event-list>
+        </div>
+
+        <div class="row select-section">
+            <div class="col d-flex justify-content-end">
+                <ngb-pagination [collectionSize]="paging.total" [(page)]="paging.page" [pageSize]="paging.pageSize" [maxSize]="paging.maxSize" [rotate]="true" [boundaryLinks]="true" (pageChange)="pageChange($event)" ></ngb-pagination>
+            </div>
+        </div>
+    </div>
+
+</section>

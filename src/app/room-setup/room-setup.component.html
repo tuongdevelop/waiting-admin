@@ -1,0 +1,60 @@
+<section class="room-setup">
+    <app-page-title [title]="pageTitle" [breadcrumb]="breadcrumb"></app-page-title>
+
+    <div class="room-setup-content">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="5" class="bl-0 bt-0 px-0">
+                            <strong>All Events’ Waiting Room Setup : </strong> (auto load form event list database)
+                        </th>
+                        <th colspan="2" class="text-center border-head">
+                            Waiting Room
+                        </th>
+                        <th class="br-0 bt-0"></th>
+                    </tr>
+                    <tr>
+                        <th>Event ID</th>
+                        <th>Name (Eng)</th>
+                        <th class="w-85">Sales Type</th>
+                        <th>Sales ID</th>
+                        <th>States</th>
+                        <th class="border-head">Use Queue</th>
+                        <th class="border-head w-136">Use Question Set</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let event of eventWatingList">
+                        <td>{{event.event.id}}</td>
+                        <td>{{event.event.nameEn}}</td>
+                        <td>{{ standardSaleType(event.event.saleType) }}</td>
+                        <td>{{event.event.saleId}}</td>
+                        <td>{{event.event?.onSale?.onSaleStatus}}</td>
+                        <td>
+                            <span *ngIf="event.userQueue != ''" [ngClass]="{'green-text': event.userQueue.toLowerCase() != 'no'}">{{ toCapitalize(event.userQueue) }}</span>
+                            <span *ngIf="event.userQueue == ''" class="green-text">-</span>
+                        </td>
+                        <td>
+                            <span *ngIf="event.nameEnQuestionSet != ''" class="green-text">{{ toCapitalize(event.nameEnQuestionSet )}}</span>
+                            <span *ngIf="event.nameEnQuestionSet == ''" class="green-text">-</span>
+                        </td>
+                        <td><a class="btn btn-edit" (click)="goDetail(event.event.id, event.event.saleId)">Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="8" class="bl-0 br-0 bb-0 note">
+                            Default table order (Lastest event show first)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="paging">
+            <ngb-pagination class="d-flex justify-content-end" [collectionSize]="paging.total" [(page)]="paging.page" [pageSize]="paging.pageSize" [maxSize]="paging.maxSize" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+
+</section>

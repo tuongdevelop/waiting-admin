@@ -1,0 +1,57 @@
+.login{
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: #f3f5f7;
+   .login-container{
+       max-width: 400px;
+       background:#fff;
+       padding: 30px 50px;
+       box-shadow: 0 0 25px rgba(0,0,0,.07);
+       border-radius: 3px;
+
+       .loading{
+            margin-bottom: 1.5rem;
+            text-align: center;
+       }
+   }
+
+   .sign-in{
+       font-size: 16px;
+       color: #4b4b44;
+       margin-bottom: 30px;
+   }
+
+   form{
+       .form-group{
+           input{
+               width: 300px;
+               height: 34px;
+               background: none;
+               border: none;
+               border-radius: 0px;
+               border-bottom: 1px solid #ddd;
+               padding-left: 0px;
+           }
+           
+       }
+       .form-check{
+        .custom-control{
+            padding-left: 5px;
+        }
+       }
+       
+
+       .btn-submit{
+           width: 100%;
+       }
+
+       .error{
+           color: red;
+           font-size: 14px;
+           margin-bottom: 5px;
+       }
+   }
+}

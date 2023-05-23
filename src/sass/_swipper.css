@@ -1,0 +1,83 @@
+
+.d3-draw-container{
+    min-height: 300px;
+    background: #fff;
+  }
+  .d3-draw-container svg, .d3-draw-container *{
+    sharp-rendering: crispEdges;
+  }
+  
+  .d3-draw-container svg g.points circle.c1{
+    fill-opacity: 1;
+    stroke: #d6d6d6;
+    stroke-width: 2px;
+    stroke-opacity: 1;
+    fill: #d6d6d6;
+  }
+  
+  .d3-draw-container svg g.points circle.c2{
+    fill: #fff;
+    fill-opacity: .5;
+    stroke: #d6d6d6;
+    stroke-width: 2px;
+  }
+
+  .d3-draw-container svg g.points text.txt{
+    fill: #d6d6d6;
+    font-size: 16px;
+  }
+  
+  .d3-draw-container svg  g.drawing path{
+    fill: none;
+    fill-opacity: 0;
+    stroke-width: 20px;
+    stroke: #d8f0bc;
+    stroke-opacity: .4;
+    stroke-linejoin: miter;
+    stroke-linecap: round;
+  }
+
+  /*list*/
+  .d3-draw-container-on-list{
+    min-height: 150px;
+    background: #fff;
+    width: 200px;
+    height: 200px;
+    border-radius: 4px;
+  }
+  .d3-draw-container-on-list svg{
+    transform: scale(0.666) translate(-30%, -30%);
+  }
+  .d3-draw-container-on-list svg, .d3-draw-container-on-list *{
+    sharp-rendering: crispEdges;
+  }
+  
+  .d3-draw-container-on-list svg g.points circle.c1{
+    fill-opacity: 1;
+    stroke: #d6d6d6;
+    stroke-width: 2px;
+    stroke-opacity: 1;
+    fill: #d6d6d6;
+  }
+  
+  .d3-draw-container-on-list svg g.points circle.c2{
+    fill: #fff;
+    fill-opacity: .5;
+    stroke: #d6d6d6;
+    stroke-width: 2px;
+  }
+
+  .d3-draw-container-on-list svg g.points text.txt{
+    fill: #d6d6d6;
+    font-size: 16px;
+  }
+  
+  .d3-draw-container-on-list svg  g.drawing path{
+    fill: none;
+    fill-opacity: 0;
+    stroke-width: 20px;
+    stroke: #d8f0bc;
+    stroke-opacity: .4;
+    stroke-linejoin: miter;
+    stroke-linecap: round;
+  }

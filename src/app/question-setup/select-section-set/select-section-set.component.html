@@ -1,0 +1,35 @@
+<div class="select-section-set d-flex align-items-center">
+    <span class="question-set-title">Select Question Set :</span>
+
+    <div class="relative ml-3">
+        <div (click)="openSelect()" class="dropdown-selected border rounded">
+            {{questionSetSelected}}
+        </div>
+
+        <div [ngClass]="{'active': isOpen}" class="dropdown">
+            <div class="drop-menu">
+                <ng-scrollbar>
+                    <ul>
+                        <li [ngClass]="{'active': item.nameEn == questionSetSelected}" class="d-flex justify-content-between align-items-center" *ngFor="let item of questionSetList">
+                            <div *ngIf="!item.isEdit" class="item-show">
+                                <span class="select-text" (click)="selected(item)">{{item.nameEn}}</span>
+                                <span (click)="turnOnEdit(item)" class="icon-copy"></span>
+                                <img (click)="deleteQuestionSet($event, item.id)" src='assets/images/btn-clear-x.png' />
+                            </div>
+                            <div *ngIf="item.isEdit" class="item-edit btn-group">
+                                <input type="text" name="question_set_name" [(ngModel)]="item.nameEn" />
+                                <button class="btn btn-light" (click)="EditNew(item)"><i class="fa fa-check"></i></button>
+                            </div>
+                        </li>
+                    </ul>
+                </ng-scrollbar>
+                <button *ngIf="!isAddNew" class="btn" (click)="turnOnAddNew()" >+ New Question Set</button>
+                <div *ngIf="isAddNew" class="add-new-box btn-group">
+                    <input type="text" name="question_set_text" [(ngModel)]="questionSetText" />
+                    <button class="btn btn-light" (click)="AddNew()"><i class="fa fa-check"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

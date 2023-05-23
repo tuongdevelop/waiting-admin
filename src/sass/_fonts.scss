@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'NotoSansRegular';
+    src: url($fontPath + 'NotoSansTC-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSansBold';
+    src: url($fontPath + 'NotoSansTC-Bold.otf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSansDemiLight';
+    src: url($fontPath + 'NotoSansTC-DemiLight.otf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSansLight';
+    src: url($fontPath + 'NotoSansTC-Light.otf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotoSansMedium';
+    src: url($fontPath + 'NotoSansTC-Medium.otf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirNext';
+    font-style: normal;
+    font-weight: normal;
+    src: url($fontPath + 'AvenirNextLTPro-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'AvenirNext-Medium';
+    font-style: normal;
+    font-weight: 500;
+    src: url($fontPath + 'AvenirNextLTPro-Bold.woff') format('woff');
+}

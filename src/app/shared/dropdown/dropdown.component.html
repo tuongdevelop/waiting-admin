@@ -1,0 +1,14 @@
+<div class="dropdown">
+    <div class="selected" innerHTML="<span class='place-holder'>{{placeholder}}</span>" (click)="openDropdown()"></div>
+    <div class="dropdown-content" [ngClass]="{'active': isActive}">
+        <ng-scrollbar>
+            <ul>
+                <li *ngFor="let item of data" (click)="selectedItem(item)" [ngClass]="{'item-active': itemSelected == item.id}">
+                    <img *ngIf="item.image" [src]="item.image" />
+                    <span *ngIf="item.image">&nbsp;: &nbsp;</span>
+                    <span>{{item.name}}</span>
+                </li>
+            </ul>
+        </ng-scrollbar>
+    </div>
+</div>

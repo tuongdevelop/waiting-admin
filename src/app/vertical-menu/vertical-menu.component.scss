@@ -1,0 +1,88 @@
+.vertical-menu {
+    width: 170px;
+    position: fixed;
+    height: 100vh;
+    background-color: #d8d8d8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    .logout {
+        color: #a1a1a1;
+        font-size: 12px;
+        a {
+            color: #4d4d4d;
+            padding-left: 20px;
+        }
+        .time {
+            font-size: 12px;
+            color: #a1a1a1;
+            padding-left: 10px;
+            margin-top: 5px;
+        }
+    }
+    .user {
+        .user-info {
+            margin-bottom: 50px;
+            .avatar {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background-color: #979797;
+                overflow: hidden;
+            }
+            .name {
+                font-size: 12px;
+                color: #4d4d4d;
+            }
+        }
+        &>ul {
+            margin-left: -10px;
+            margin-right: -10px;
+            li {
+                padding: 0;
+                margin-top: 1px;
+                a {
+                    font-family: 'NotoSansRegular';
+                    color: #4d4d4d;
+                    font-size: 12px;
+                    padding: 20px;
+                    display: block;
+                    cursor: pointer;
+                    &:hover,
+                    &.active {
+                        background-color: rgba(0, 0, 0, 0.1);
+                        text-decoration: none;
+                    }
+                }
+                .sub-menu {
+                    max-height: 0px;
+                    overflow: hidden;
+                    transition: all 0.3s ease-in-out;
+                    li{
+                        width: 100%;
+                    }
+                }
+                &.active {
+                    .sub-menu {
+                        max-height: 500px;
+                        transition: all 0.3s ease-in-out;
+                    }
+                }
+                ul {
+                    width: 100%;
+                    li {
+                        a {
+                            padding: 20px 20px 20px 40px;
+                            &:hover,
+                            &.active {
+                                background-color: rgba(0, 0, 0, 0.1);
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

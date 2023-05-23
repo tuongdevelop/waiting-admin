@@ -1,0 +1,163 @@
+<section class="question-setup">
+    <app-page-title [title]="pageTitle" [breadcrumb]="breadcrumb"></app-page-title>
+
+    <div class="question-content">
+        <div class="select-section row">
+            <div class="col">
+                <app-select-section-set (selectQuestionSet)="selectQuestionSet($event)"></app-select-section-set>
+            </div>
+
+            <div class="col-auto btn-action">
+                <button class="btn add-new" (click)="addNewQuestion()">+ Add New Question</button>
+                <button [disabled]="disableEdit" (click)="gotoDetail()" class="btn ml-2">Edit</button>
+                <!-- <button [disabled]="enableBtnEnable" (click)="enableQuestionStatus()" class="btn ml-2">Enable</button>
+                <button [disabled]="disableBtnEnable" (click)="disableQuestionStatus()" class="btn ml-2">Disable</button> -->
+                <button [disabled]="enableBtnEnable" (click)="enableStates()" class="btn ml-2">Enable</button>
+                <button [disabled]="disableBtnEnable" (click)="disableStates()" class="btn ml-2">Disable</button>
+                <button [disabled]="disableDelete" (click)="deleteQuestions()" class="btn ml-2">Del</button>
+            </div>
+        </div>
+
+        <div class="question-list">
+            <!-- <app-question-list (checkedOutput)="onCheckboxChanges(event)" [questionList]="questionList"></app-question-list> -->
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <th></th>
+                        <th width="15%">Question Type:</th>
+                        <th width="25%">Question</th>
+                        <th>
+                            <div class="row">
+                                <div class="col">Ans</div>
+                                <div class="col">Ans</div>
+                                <div class="col">Ans</div>
+                                <div class="col">Ans</div>
+                            </div>
+                        </th>
+                        <th>Status</th>
+                    </tr>
+
+                    <tr *ngFor="let question of questionList, index as i">
+                        <td>
+                            <div class="custom-control custom-checkbox">
+                                <input (change)="checkbox(question)" type="checkbox" class="custom-control-input" id="chk{{i}}">
+                                <label class="custom-control-label" for="chk{{i}}"></label>
+                            </div>
+                        </td>
+
+                        <td width="15%">
+                            <div *ngIf="question.questionType == 'artist_name'">Artist name</div>
+                            <div *ngIf="question.questionType == 'physics_water'">Physics water</div>
+                            <div *ngIf="question.questionType == 'swipe_mission'">Swipe mission</div>
+                        </td>
+
+                        <td width="25%" class="text-center">
+
+                            <div *ngIf="question.questionType == 'swipe_mission'">
+                                <div *ngIf="question.questionEn" class="question_text">{{question.questionEn}}</div>
+                                <div class="d3-draw-container-on-list _{{question.id}}_">
+        
+                                </div>
+                                {{drawSwipeQuestion(question.swipeQuestion, question.swipeCorrectAnswer, question.id)}}
+                            </div>
+
+                            <div *ngIf="question.questionType != 'swipe_mission'">
+                                <div *ngIf="question.questionEn" class="question_text">{{question.questionEn}}</div>
+                                <img class="img-thumbnail" [src]="question.questionPic" />
+                            </div>
+                        </td>
+
+                        <td class="py-0" *ngIf="question.questionType == 'artist_name'">
+                            <div class="row">
+                                <div *ngIf="question.answerTextFirst" class="col question-border text-center">
+                                    <span>{{question.answerTextFirst}} </span>
+                                    <div class="correct-ans text-center" *ngFor="let ans of question.correctAnswer">
+                                        <img *ngIf="ans =='first'" src="assets/images/tick.svg" />
+                                    </div>
+                                </div>
+                                <div *ngIf="question.answerTextSecond" class="col question-border text-center">
+                                    <span>{{question.answerTextSecond}}</span>
+                                    <div class="correct-ans text-center" *ngFor="let ans of question.correctAnswer">
+                                        <img *ngIf="ans =='second'" src="assets/images/tick.svg" />
+                                    </div>
+                                </div>
+
+                                <div *ngIf="question.answerTextThird" class="col question-border text-center">
+                                    <span>{{question.answerTextThird}}</span>
+                                    <div class="correct-ans text-center" *ngFor="let ans of question.correctAnswer">
+                                        <img *ngIf="ans =='third'" src="assets/images/tick.svg" />
+                                    </div>
+                                </div>
+
+                                <div *ngIf="question.answerTextFourth" class="col question-border text-center">
+                                    <span>{{question.answerTextFourth}}</span>
+                                    <div class="correct-ans text-center" *ngFor="let ans of question.correctAnswer">
+                                        <img *ngIf="ans =='fourth'" src="assets/images/tick.svg" />
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td class="py-0" *ngIf="question.questionType == 'physics_water'">
+                            <div class="row">
+                                <div *ngIf="question.answerPicFirst" class="col question-border text-center">
+                                    <img class="img-thumbnail" [src]="question.answerPicFirst" />
+                                    <div class="correct-ans text-center" *ngFor="let ans of question.correctAnswer">
+                                        <img *ngIf="ans =='first'" src="assets/images/tick.svg" />
+                                    </div>
+                                </div>
+                                <div *ngIf="question.answerPicSecond" class="col question-border text-center">
+                                    <img class="img-thumbnail" [src]="question.answerPicSecond" />
+                                    <div class="correct-ans text-center" *ngFor="let ans of question.correctAnswer">
+                                        <img *ngIf="ans =='second'" src="assets/images/tick.svg" />
+                                    </div>
+                                </div>
+
+                                <div *ngIf="question.answerPicThird" class="col question-border text-center">
+                                    <img class="img-thumbnail" [src]="question.answerPicThird" />
+                                    <div class="correct-ans text-center" *ngFor="let ans of question.correctAnswer">
+                                        <img *ngIf="ans =='third'" src="assets/images/tick.svg" />
+                                    </div>
+                                </div>
+
+                                <div *ngIf="question.answerPicFourth" class="col question-border text-center">
+                                    <img class="img-thumbnail" [src]="question.answerPicFourth" />
+                                    <div class="correct-ans text-center" *ngFor="let ans of question.correctAnswer">
+                                        <img *ngIf="ans =='fourth'" src="assets/images/tick.svg" />
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td *ngIf="question.questionType == 'swipe_mission'">
+                            {{question.swipeTarget}}, {{question.swipeOrder}}
+                        </td>
+
+                        <!-- <td class="color-status">{{question.questionStatus}}</td> -->
+                        <td class="color-status">{{question.states}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row select-section">
+            <div class="col-auto">
+                <!-- <div class="btn-action">
+                    <button class="btn mr-2">Export(.csv)</button>
+                    <button class="btn mr-2">Import(.csv)</button>
+                    <button class="btn">Print</button>
+                </div> -->
+            </div>
+
+            <div class="col d-flex justify-content-end">
+                <div class="search mr-3">
+                    <img src="assets/images/search.png">
+                    <input type="text" />
+                </div>
+                <ngb-pagination [collectionSize]="paging.total" [(page)]="paging.page" [pageSize]="paging.pageSize"
+                    [maxSize]="paging.maxSize" [rotate]="true" [boundaryLinks]="true" (pageChange)="pageChange($event)"></ngb-pagination>
+            </div>
+        </div>
+    </div>
+
+</section>

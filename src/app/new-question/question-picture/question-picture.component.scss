@@ -1,0 +1,126 @@
+.form-group {
+    display: flex;
+    .form-title {
+        width: 100%;
+        text-align: right;
+        font-size: 14px;
+        font-weight: 500;
+        color: #4d4d4d;
+    }
+    .form-input-event {
+        display: flex;
+    }
+    .input-group {
+        .form-control {
+            border-radius: 2px;
+        }
+        .hdform-control {
+            border-radius: 3px;
+            border-color: #e5e6e7;
+            max-height: 31px;
+        }
+    }
+}
+
+.checkbox-group {
+    position: relative;
+    display: inline-block;
+    .cbutton {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        border-radius: 3px;
+        border: 1px solid #dee2e6;
+        pointer-events: none;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        color: #888888;
+        i {
+            opacity: 0;
+            font-size: 0.9em;
+            transition: opacity 0.2s linear;
+        }
+        &::after {
+            box-shadow: inset 0 0 0 35px rgba(111, 148, 182, 0);
+        }
+    }
+    input[type='checkbox'] {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+        &:checked {
+            &~label {
+                i {
+                    color: #98b17c;
+                    opacity: 1;
+                    transition: opacity 0.2s linear;
+                }
+                &::after {
+                    animation: anim-effect-radomir 0.5s ease-out forwards;
+                }
+            }
+        }
+    }
+}
+
+.correct-answer-group {
+    .correct-item {
+        border-radius: 3px;
+    }
+}
+
+.answer-graphic-group {
+    .border {
+        border: 1px solid #d6d6d6;
+        border-radius: 8px !important;
+    }
+    .icon-cloud {
+        img {
+            width: 40px !important;
+        }
+    }
+}
+
+.question-pic-group {
+    .icon-cloud {
+        img {
+            width: 52px;
+        }
+    }
+}
+
+.drap-drop-photo {
+    cursor: pointer;
+    .icon-cloud {
+        img {
+            width: 80px;
+        }
+    }
+    .note-upload {
+        font-size: 13px;
+        color: #999999;
+    }
+}
+
+.preview-question-image {
+    width: 100%;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.preview-answer-image {
+    width: 100%;
+    height: 125px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}

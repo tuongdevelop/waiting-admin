@@ -1,0 +1,246 @@
+<section class="new-event">
+    <app-page-title [title]="pageTitle" [breadcrumb]="breadcrumb"></app-page-title>
+
+    <div class="event-content">
+        <div class="row event-information">
+            <div class="col-12 col-md-8">
+                <div class="form-group">
+                    <div class="col-12 col-md-4"><label class="form-title font-weight-bold">Event ID* :</label></div>
+                    <div class="col-12 col-md-6 d-flex">
+                        <input type="text" class="form-control mr-2" placeholder="*" />
+                        <button class="btn btn-inform">Apply (Load Event Detail)</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 col-md-4"><label class="form-title">Event Name (Eng) :</label></div>
+                    <div class="col-12 col-md-6">
+                        <input type="text" class="form-control" placeholder="(Optional)" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 col-md-4"><label class="form-title">Event Name (Chi) :</label></div>
+                    <div class="col-12 col-md-6">
+                        <input type="text" class="form-control" placeholder="(Optional)" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 col-md-4"><label class="form-title">Event Date :</label></div>
+                    <div class="col-12 col-md-6">
+                        <app-daterange-picker></app-daterange-picker>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 col-md-4"><label class="form-title">Event Time :</label></div>
+                    <div class="col-12 col-md-6">
+                        <app-time-picker [placeholder]="placeholderStartTime"></app-time-picker>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 col-md-4"><label class="form-title">Venue :</label></div>
+                    <div class="col-12 col-md-6">
+                        <app-dropdown [placeholder]="placeholder" [data]="data" (item)="itemSelected($event)"></app-dropdown>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 event-picture-group">
+                <div class="event-poster">Event Poster:</div>
+                <div class="drap-drop-photo border rounded p-3" ngfDrop selectable="1" [(file)]="file" [accept]="accept">
+                    <div class="drap-drop-icon">
+                        <div class="p-0 preview-image" *ngIf="file" [ngfBackground]="file">
+                        </div>
+                        <div class="p-0" *ngIf="!file">
+                            <div class="icon-cloud text-center"><img src="assets/images/icon-cloud.png" /></div>
+                            <div class="note-upload text-center mt-3">
+                                <p>Drag and drop a photo<br/>here or click or select<br/>one Icon at the right:
+                                    <p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row on-sale">
+            <div class="col border p-4 mt-4">
+                <div class="form-group">
+                    <div class="col-12 col-md-3">
+                        <label class="form-title font-weight-bold">On Sale Date :</label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <app-daterange-picker></app-daterange-picker>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 col-md-3">
+                        <label class="form-title">Start Sale Time :</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <div class="d-flex">
+                            <div class="mr-2">
+                                <app-time-picker [placeholder]="placeholderSaleTime"></app-time-picker>
+                            </div>
+                            <div class="mr-2">
+                                <div class="witch-btn inline-input d-flex">
+                                    <div class="no">
+                                        <input type="radio" name="sale_time-switch" checked />
+                                        <label>On Time</label>
+                                    </div>
+                                    <div class="yes">
+                                        <input type="radio" name="sale_time-switch" />
+                                        <label>Postpone</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-fill d-flex">
+                                <app-time-picker [placeholder]="placeholderPostpone"></app-time-picker>
+                                <button class="btn btn-inform">Announce</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 col-md-3">
+                        <label class="form-title">Use Queue System :</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <div class="witch-btn d-flex">
+                            <div class="no">
+                                <input type="radio" name="queue-switch" checked />
+                                <label>No</label>
+                            </div>
+                            <div class="yes">
+                                <input type="radio" name="queue-switch" />
+                                <label>Yes</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group tailor-question-group">
+                    <div class="col-12 col-md-3">
+                        <label class="form-title">Add Tailor Question :</label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <app-dropdown [placeholder]="placeholderTailorQues" [data]="dataTailorQues" (item)="itemSelected($event)"></app-dropdown>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 col-md-3">
+                        <label class="form-title">(On Sale) Status :</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <div class="witch-btn d-flex">
+                            <div class="no">
+                                <input type="radio" name="status-switch" checked />
+                                <label>Pending</label>
+                            </div>
+                            <div class="yes">
+                                <input type="radio" name="status-switch" />
+                                <label>To Be Sold</label>
+                            </div>
+                            <div class="yes">
+                                <input type="radio" name="status-switch" />
+                                <label>On Sale</label>
+                            </div>
+                            <div class="yes">
+                                <input type="radio" name="status-switch" />
+                                <label>Sold Out</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row priority-booking">
+            <div class="col border p-4 mt-4">
+                <div class="form-group">
+                    <div class="col-12 col-md-1">
+                        <button class="btn btn-inform">+</button>
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <label class="form-title font-weight-bold">Priority Booking & Organization :</label>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex">
+                        <div class="mr-2">
+                            <div class="witch-btn inline-input d-flex">
+                                <div class="no">
+                                    <input type="radio" name="priority_booking-switch" checked />
+                                    <label>No</label>
+                                </div>
+                                <div class="yes">
+                                    <input type="radio" name="priority_booking-switch" />
+                                    <label>Yes</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-fill">
+                            <app-dropdown [placeholder]="placeholderPBooking"></app-dropdown>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 col-md-3">
+                        <label class="form-title">Priority Booking Date :</label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <app-daterange-picker></app-daterange-picker>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 col-md-3">
+                        <label class="form-title">Use Queue System :</label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="witch-btn d-flex">
+                            <div class="no">
+                                <input type="radio" name="queue-switch" />
+                                <label>No</label>
+                            </div>
+                            <div class="yes">
+                                <input type="radio" name="queue-switch" />
+                                <label>Yes</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 col-md-3">
+                        <label class="form-title">Link :</label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <input type="text" class="form-control" placeholder="(Optional)" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-12 col-md-3">
+                        <label class="form-title">(Priority Booking) Status :</label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="witch-btn d-flex">
+                            <div class="no">
+                                <input type="radio" name="status-switch" />
+                                <label>Pending</label>
+                            </div>
+                            <div class="yes">
+                                <input type="radio" name="status-switch" />
+                                <label>To Be Sold</label>
+                            </div>
+                            <div class="yes">
+                                <input type="radio" name="status-switch" />
+                                <label>On Sale</label>
+                            </div>
+                            <div class="yes">
+                                <input type="radio" name="status-switch" />
+                                <label>Sold Out</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-action d-flex justify-content-between pt-5">
+            <button class="btn btn-custom btn-cancel" routerLink="/events">Cancel</button>
+            <button class="btn btn-custom btn-save">Save</button>
+        </div>
+    </div>
+
+</section>

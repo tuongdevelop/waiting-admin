@@ -1,0 +1,64 @@
+<div class="form-group">
+    <div class="col-12 col-md-2">
+        <label class="form-title">Question :</label>
+    </div>
+    <div class="col-12 col-md-7 col-xl-6">
+        <div class="d-flex">
+            <div class="col p-0">
+                <div class="border rounded p-2">
+                    <div class="d3-draw-container">
+        
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex flex-wrap">
+                <a (click)="setTypePointValue(1)" class="btn-question-generate col mb-3 d-flex border rounded align-items-center">
+                    <span class="col pl-0 ques-text">1-10</span>
+                    <span class="icon-point"><i class="circle-center"></i></span>
+                </a>
+                <a (click)="setTypePointValue(2)" class="btn-question-generate col mb-3 d-flex border rounded align-items-center">
+                    <span class="col pl-0 ques-text">A-J</span>
+                    <span class="icon-point"><i class="circle-center"></i></span>
+                </a>
+                <a (click)="setTypePointValue(3)" class="btn-question-generate random-question col mb-3 d-flex border rounded align-items-center">
+                    <span class="col pl-0 ques-text">Random</span>
+                    <span class="icon-point"><i class="circle-center"></i></span>
+                </a>
+                <a (click)="clearPoints()" class="btn-question-generate reset-question col d-flex border rounded align-self-end">
+                    <span>Reset</span>
+                </a>
+            </div>
+        </div>
+        <div class="question-point">Click to add point to Quesiton Pic, able to drag / del after click the point.</div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-12 col-md-2"><label class="form-title">Swipe target :</label></div>
+    <div class="col-12 col-md-6">
+        <div class="witch-btn d-flex">
+            <div class="no">
+                <input type="radio" [(ngModel)]="swipeData.swipeTarget" value="NUMBER" name="swipe_target-switch" checked />
+                <label>Number</label>
+            </div>
+            <div class="yes">
+                <input type="radio" [(ngModel)]="swipeData.swipeTarget" value="ALPHABET" name="swipe_target-switch" />
+                <label>Alphabet</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-12 col-md-2"><label class="form-title">Swipe Order :</label></div>
+    <div class="col-12 col-md-6">
+        <div class="witch-btn d-flex">
+            <div class="no">
+                <input type="radio" [(ngModel)]="swipeData.swipeOrder" value="ASCENDING" name="swipe_order-switch" checked />
+                <label>Ascending</label>
+            </div>
+            <div class="yes">
+                <input type="radio" [(ngModel)]="swipeData.swipeOrder" value="DESCENDING" name="swipe_order-switch" />
+                <label>Descending</label>
+            </div>
+        </div>
+    </div>
+</div>

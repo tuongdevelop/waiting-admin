@@ -1,0 +1,42 @@
+<div class="vertical-menu">
+    <div class="user">
+        <div class="user-info d-flex align-items-center justify-content-spacebetween">
+            <div class="avatar mr-2">
+                <img src="assets/images/avatar.png" />
+            </div>
+            <div class="name">
+                <p>{{currentUser.username}}</p>
+                <p>Admin</p>
+            </div>
+        </div>
+
+        <ul class="menu">
+            <!-- <li [ngClass]="{'active': menuActive == 'event'}" (click)="activeMenu('event')">
+                <a>All Events</a>
+                <ul class="nav sub-menu">
+                    <li><a routerLink="/events" routerLinkActive="active">Event List</a></li>
+                    <li><a routerLink="/new-event" routerLinkActive="active">New Event</a></li>
+                </ul>
+            </li> -->
+            <li [ngClass]="{'active': menuActive == 'wating-room'}" (click)="activeMenu('wating-room')"><a routerLink="/room-setup" routerLinkActive="active">Waiting Room Setup</a></li>
+            <li [ngClass]="{'active': menuActive == 'question'}" (click)="activeMenu('question')">
+                <a routerLink="/question-setup" routerLinkActive="active">Questions Setup</a>
+                <!-- <ul class="nav sub-menu">
+                    <li><a routerLink="/question-setup" routerLinkActive="active">Questions Setup List</a></li>
+                    <li><a routerLink="/new-question" routerLinkActive="active">Add New Question</a></li>
+                </ul> -->
+            </li>
+            <li [ngClass]="{'active': menuActive == 'question-set-setup'}" (click)="activeMenu('question-set-setup')"><a routerLink="/question-set-setup" routerLinkActive="active">Question Set Setup</a></li>
+            <!-- <li [ngClass]="{'active': menuActive == 'announ'}" (click)="activeMenu('announ')"><a routerLink="/all-selling" routerLinkActive="active">Announcement to All Selling (Real Time)</a></li>
+            <li [ngClass]="{'active': menuActive == 'user'}" (click)="activeMenu('user')"><a routerLink="user-management" routerLinkActive="active">User Management</a></li> -->
+        </ul>
+    </div>
+
+    <div class="logout">
+        <!-- <a [routerLink]="['/login']">[ Logout ]</a> -->
+        <a (click)="logout()">[ Logout ]</a>
+        <div class="time">
+            {{date}}
+        </div>
+    </div>
+</div>

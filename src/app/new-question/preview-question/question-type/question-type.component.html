@@ -1,0 +1,95 @@
+<section *ngIf="question.questionType == 'physics_water'" class="question-type">
+  <h3>Q {{question.questionIndex}} :</h3>
+
+  <div class="justify-content-md-center question-img">
+    <img [src]="question.questionBase64"/>
+  </div>
+
+  <div class="ans">
+    <h3>Choose the correct Ans:</h3>
+    <div class="d-flex justify-content-md-center justify-content-between">
+
+      <div class="img-thumbnail border mx-2 rounded" *ngIf="question.answerFirstBase64">
+        <input type="radio" name="answer-check" value="first" [(ngModel)]="answerSelected"/>
+        <img [src]="question.answerFirstBase64"/>
+        <div class="active"></div>
+      </div>
+
+      <div class="img-thumbnail border mx-2 rounded" *ngIf="question.answerSecondBase64">
+        <input type="radio" name="answer-check" value="second" [(ngModel)]="answerSelected"/>
+        <img [src]="question.answerSecondBase64"/>
+        <div class="active"></div>
+      </div>
+
+      <div class="img-thumbnail border mx-2 rounded" *ngIf="question.answerThirdBase64">
+        <input type="radio" name="answer-check" value="third" [(ngModel)]="answerSelected"/>
+        <img [src]="question.answerThirdBase64"/>
+        <div class="active"></div>
+      </div>
+
+      <div class="img-thumbnail border mx-2 rounded" *ngIf="question.answerFourthBase64">
+        <input type="radio" name="answer-check" value="fourth" [(ngModel)]="answerSelected"/>
+        <img [src]="question.answerFourthBase64"/>
+        <div class="active"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section *ngIf="question.questionType == 'swipe_mission'" class="question-type">
+    <div class="d-flex">
+        <h3 class="col-auto px-0">Q {{question.questionIndex}} :</h3><h3 class="col-9">{{question.questionEn}}</h3>
+    </div>
+
+    <div class="justify-content-center question-img ">
+      <div class="d3-draw-container preview">
+        
+      </div>
+    </div>
+</section>
+
+<section *ngIf="question.questionType == 'artist_name'" class="question-type ">
+    <h3>Q {{question.questionIndex}} :</h3>
+
+    <div class=" justify-content-md-center question-img px-30">
+      <img [src]="question.questionBase64"/>
+    </div>
+
+    <div class="ans pt-md-3">
+      <h3 class="pb-2">Choose the correct Ans:</h3>
+      <div class="row justify-content-center px-30">
+          <div class="col-md-5 col-12">
+              <div class="img-thumbnail border mb-2 rounded" *ngIf="question.answerTextFirst">
+                <input type="radio" name="answer-check" value="first" [(ngModel)]="answerSelected" />
+                <span [ngClass]="{'text-center': (question.answerTextAlign=='center')}">{{question.answerTextFirst}}</span>
+                <div class="active"></div>
+              </div>
+          </div>
+
+          <div class="col-md-5 col-12">
+              <div class="img-thumbnail border mb-2 rounded" *ngIf="question.answerTextSecond">
+                <input type="radio" name="answer-check" value="second" [(ngModel)]="answerSelected" />
+                <span [ngClass]="{'text-center': (question.answerTextAlign=='center')}">{{question.answerTextSecond}}</span>
+                <div class="active"></div>
+              </div>
+          </div>
+
+          <div class="col-md-5 col-12">
+              <div class="img-thumbnail border mb-2 rounded" *ngIf="question.answerTextThird">
+                <input type="radio" name="answer-check" value="third" [(ngModel)]="answerSelected" />
+                <span [ngClass]="{'text-center': (question.answerTextAlign=='center')}">{{question.answerTextThird}}</span>
+                <div class="active"></div>
+              </div>
+          </div>
+
+          <div class="col-md-5 col-12">
+              <div class="img-thumbnail border mb-2 rounded" *ngIf="question.answerTextFourth">
+                <input type="radio" name="answer-check" value="fourth" [(ngModel)]="answerSelected" />
+                <span [ngClass]="{'text-center': (question.answerTextAlign=='center')}">{{question.answerTextFourth}}</span>
+                <div class="active"></div>
+              </div>
+          </div>
+      </div>
+    </div>
+</section>

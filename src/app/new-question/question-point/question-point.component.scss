@@ -1,0 +1,109 @@
+.form-group {
+    display: flex;
+    .form-title {
+        width: 100%;
+        text-align: right;
+        font-size: 14px;
+        font-weight: 500;
+        color: #4d4d4d;
+    }
+    .form-input-event {
+        display: flex;
+    }
+    .input-group {
+        .form-control {
+            border-radius: 2px;
+        }
+    }
+}
+
+.checkbox-group {
+    position: relative;
+    display: inline-block;
+    .cbutton {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        pointer-events: none;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        color: #888888;
+        i {
+            opacity: 0;
+            font-size: 0.9em;
+            transition: opacity 0.2s linear;
+        }
+        &::after {
+            box-shadow: inset 0 0 0 35px rgba(111, 148, 182, 0);
+        }
+    }
+    input[type='checkbox'] {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+        &:checked {
+            &~label {
+                i {
+                    color: #98b17c;
+                    opacity: 1;
+                    transition: opacity 0.2s linear;
+                }
+                &::after {
+                    animation: anim-effect-radomir 0.5s ease-out forwards;
+                }
+            }
+        }
+    }
+}
+
+.questioin-swipe-img {
+    max-width: 330px;
+}
+.question-point{
+    color: #4d4d4d;
+    padding: 10px 5px;
+}
+
+.btn-question-generate {
+    font-size: 25px;
+    cursor: pointer;
+    color: #e5e6e7 !important;
+    .icon-point {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: block;
+        border: 4px solid #e5e6e7!important;
+        text-align: center;
+        padding: 5px;
+        .circle-center {
+            background-color: #e5e6e7;
+            display: block;
+            border-radius: 50%;
+            border: 1px;
+            width: 12px;
+            height: 12px;
+        }
+    }
+    &.random-question {
+        font-size: 20px;
+        padding: 4px 15px;
+    }
+    &.reset-question {
+        font-size: 20px;
+        padding: 10px 15px;
+        text-align: center;
+        span {
+            width: 100%;
+        }
+    }
+}

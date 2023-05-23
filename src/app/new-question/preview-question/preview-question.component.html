@@ -1,0 +1,9 @@
+<div class="modal-header">
+    <h4 class="modal-title">Preview Question</h4>
+    <button type="button" class="close" (click)="activeModal.dismiss('Cross click')">
+        X
+    </button>
+</div>
+<div class="modal-body">
+    <app-question-type *ngIf="question_preview" [question]="question_preview"></app-question-type>
+</div>

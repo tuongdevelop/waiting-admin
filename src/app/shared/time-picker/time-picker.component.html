@@ -1,0 +1,4 @@
+<div class="time-picker-dropdown" ngbDropdown>
+    <input value="{{ timeValue }}" type="text" class="form-control input-time-picker" [placeholder]="placeholder" ngbDropdownToggle [(ngModel)]="timeValue" (click)="setValueTime()" />
+    <ngb-timepicker ngbDropdownMenu [(ngModel)]="timePicker" (ngModelChange)="fireOnChange($event)" aria-labelledby="dropdownConfig"></ngb-timepicker>
+</div>

@@ -1,0 +1,143 @@
+<section *ngIf="eventDetail" class="room-setup-detail">
+    <app-page-title [title]="pageTitle" [breadcrumb]="breadcrumb"></app-page-title>
+
+    <div class="content-detail">
+        <div class="detail row">
+            <div class="col-8">
+                <div class="table-reponsive">
+                    <table class="table">
+                        <tr>
+                            <td class="text-right no-wrap form-label">Event ID :</td>
+                            <td>{{eventDetail.event.id}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right no-wrap form-label">Event Name (Eng) :</td>
+                            <td>{{eventDetail.event.nameEn}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right no-wrap form-label">Event Name (Chi) :</td>
+                            <td>{{eventDetail.event.nameCh != '' ? eventDetail.event.nameCh : '-'}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right no-wrap form-label">Tickets Date & Time :</td>
+                            <td>{{eventDetail.event.onSale.eventDateTimeEn}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right no-wrap form-label">On Sales Period :</td>
+                            <td>---</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right no-wrap form-label">Sales Type :</td>
+                            <td>{{standardSaleType(eventDetail.event.saleType)}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right no-wrap form-label">Sales ID :</td>
+                            <td>{{eventDetail.event.saleId}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-right no-wrap form-label">States :</td>
+                            <td>{{eventDetail.event.onSale.onSaleStatus}}</td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-4 event-picture-group">
+                <div class="form-group d-flex flex-wrap">
+                    <div class="col-9"><label class="event-poster-label font-weight-bold">Event Poster:</label></div>
+                    <div class="col-9">
+                        <div class="drap-drop-photo border rounded p-0" ngfDrop selectable="1" [(file)]="file" [accept]="accept" (filesChange)="fileChange($event)">
+                            <div class="drap-drop-icon">
+                                <img class="current-event-picture" *ngIf="!file" src="{{eventPictureUrl}}" />
+
+                                <div class="p-0 preview-image" *ngIf="file" [ngfBackground]="file">
+                                </div>
+                                <div class="p-0 icon-group">
+                                    <div class="icon-cloud text-center"><img src="assets/images/icon-cloud-dark.png" /></div>
+                                    <div class="note-upload text-center">
+                                        <p>Poster image Load form<br/>Event's Database.<br/>( Could be replace at here<br/>for Waiting room use )
+                                            <p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form #f="ngForm" (ngSubmit)="onSubmitEventSetting()">
+            <div class="detail-option border rounded p-4">
+                <div class="queue-system border-bottom pb-5 mb-5">
+                    <div class="row align-items-center mb-4">
+                        <div class="col-3 text-right form-label font-weight-bold">Use Queue System :</div>
+
+                        <div class="col">
+                            <div class="witch-btn d-flex">
+                                <div class="no">
+                                    <input type="radio" name="queue-switch" value="no" [(ngModel)]="eventSetting.userQueue" />
+                                    <label>No</label>
+                                </div>
+
+                                <div class="yes">
+                                    <input type="radio" name="queue-switch" value="yes" [(ngModel)]="eventSetting.userQueue" />
+                                    <label>Yes</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                        <div class="col-3 text-right  form-label font-weight-bold">Use Question Set :</div>
+                        <div class="col-6 multiselect-dropdown-group">
+                            <ng-multiselect-dropdown name="questionSet" [placeholder]="placeholder" [data]="dropdownList" [(ngModel)]="selectedItems" [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                            </ng-multiselect-dropdown>
+                            <img class="icon-search" src="assets/images/search.png" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="announcement">
+                    <div class="row align-items-center pb-4">
+                        <div class="col-3 text-right form-label font-weight-bold">Announcement : <br/>(Real Time)</div>
+                        <div class="col-6">
+                            <input type="text" class="form-control message-announce-group" placeholder="Message to Announce to in queue User UI" disabled name="announcement" [(ngModel)]="eventSetting.announcement" />
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                        <div class="col-3 text-right form-label font-weight-bold">Sound Alert :</div>
+                        <div class="col-6 d-flex justify-content-between align-items-center">
+                            <div class="witch-btn d-flex">
+                                <div class="no">
+                                    <input type="radio" name="sound-switch" value="no" [(ngModel)]="eventSetting.soundAlert" />
+                                    <label>No</label>
+                                </div>
+
+                                <div class="yes">
+                                    <input type="radio" name="sound-switch" value="yes" [(ngModel)]="eventSetting.soundAlert" />
+                                    <label>Yes</label>
+                                </div>
+                            </div>
+
+                            <button class="btn announce-btn" (click)="onAnnounce($event)">Announce</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ngx-spinner
+            bdColor="rgba(51,51,51,0.8)"
+            size="medium"
+            color="#fff"
+            type="ball-clip-rotate">
+          </ngx-spinner>
+
+            <div class="btn-action d-flex justify-content-between pt-5">
+                <button class="btn btn-custom btn-cancel" (click)="onCancel($event)">Cancel</button>
+                <button type="submit" class="btn btn-custom btn-save">Save</button>
+            </div>
+        </form>
+    </div>
+</section>

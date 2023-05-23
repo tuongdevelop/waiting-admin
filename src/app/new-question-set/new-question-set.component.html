@@ -1,0 +1,59 @@
+<section class="new-question-set">
+    <app-page-title [title]="pageTitle" [breadcrumb]="breadcrumb"></app-page-title>
+    <div *ngIf="isLoading" class="loading-part">
+        <img src="assets/images/load-more.gif" />
+    </div>
+    <div *ngIf="!isLoading" class="question-set-content">
+        <form [formGroup]="addQuestionSetForm">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <div class="col-12 col-md-4"><label class="form-title">Question Set Status:</label></div>
+                        <div class="col-12 col-md-6">
+                            <div class="witch-btn d-flex">
+                                <div class="no">
+                                    <input formControlName="states" type="radio" value="enable" checked="checked" />
+                                    <label>Enable</label>
+                                </div>
+                                <div class="yes">
+                                    <input formControlName="states" type="radio" value="disable" />
+                                    <label>Disable</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-12 col-md-4"><label class="form-title">As Default Question Set:</label></div>
+                        <div class="col-12 col-md-6">
+                            <div class="witch-btn d-flex">
+                                <div class="no">
+                                    <input formControlName="asDefaultQuestionSet" type="radio" value="no" checked="checked" />
+                                    <label>No</label>
+                                </div>
+                                <div class="yes">
+                                    <input formControlName="asDefaultQuestionSet" type="radio" value="yes" />
+                                    <label>Yes</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-12 col-md-4"><label class="form-title">Question Set Name:</label></div>
+                        <div class="col-12 col-md-6">
+                            <div class="witch-btn d-flex">
+                                <input formControlName="questionSetName" type="text" class="question-set-name-input" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-action d-flex justify-content-between pt-5">
+                <div class="flex-grow-1"><button class="btn btn-custom btn-cancel" routerLink="/question-set-setup">Cancel</button></div>
+
+                <button (click)="addNewQuestionSet()" class="btn btn-custom btn-save">Save</button>
+            </div>
+        </form>
+    </div>
+
+</section>
